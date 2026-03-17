@@ -1,0 +1,27 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Mathematica autosave / user-specific
+*.mx
+*.m~
+*.wl~
+*.wlt~
+*.nb~
+*.tmp
+
+# Local notebook checkpoints / misc
+*.bak
+
+# Generated output
+output/raw/*
+output/logs/*
+output/tables/*
+output/figures/*
+
+# Keep output folder structure
+!output/raw/.gitkeep
+!output/logs/.gitkeep
+!output/tables/.gitkeep
+!output/figures/.gitkeep
