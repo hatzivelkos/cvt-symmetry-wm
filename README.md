@@ -198,6 +198,8 @@ Possible future improvements include:
 
 * additional regression tests
 * a cleaner testing folder structure
+
+* Local GitHub sync test.
 * a more polished public-facing README
 * example notebooks for article reproduction
 * GitHub migration and archival workflow
