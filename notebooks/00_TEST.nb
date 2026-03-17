@@ -1,0 +1,2638 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[    135650,       2630]
+NotebookOptionsPosition[    133183,       2577]
+NotebookOutlinePosition[    133613,       2594]
+CellTagsIndexPosition[    133570,       2591]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"::", "Section", "::"}], "*)"}], 
+  RowBox[{"(*", 
+   RowBox[{"Root", " ", "cell"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"$HistoryLength", "=", "0"}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"projectRoot", "=", 
+     RowBox[{"ExpandFileName", "@", 
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<..\>\""}], "}"}], 
+       "]"}]}]}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"DirectoryQ", "[", "projectRoot", "]"}]}], ",", 
+      RowBox[{
+       RowBox[{"Print", "[", 
+        RowBox[{"\"\<[ERROR] Project root not found: \>\"", ",", 
+         "projectRoot"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Abort", "[", "]"}], ";"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"srcRoot", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "projectRoot", ",", "\"\<src\>\"", ",", "\"\<CVTPulley\>\"", 
+        ",", "\"\<Kernel\>\""}], "}"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"notebooksRoot", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"projectRoot", ",", "\"\<notebooks\>\""}], "}"}], "]"}]}], 
+    ";"}], "\n", 
+   RowBox[{
+    RowBox[{"testsRoot", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"projectRoot", ",", "\"\<tests\>\""}], "}"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"examplesRoot", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"projectRoot", ",", "\"\<examples\>\""}], "}"}], "]"}]}], 
+    ";"}], "\n", 
+   RowBox[{
+    RowBox[{"docsRoot", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"projectRoot", ",", "\"\<docs\>\""}], "}"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"outputRoot", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"projectRoot", ",", "\"\<output\>\""}], "}"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"SetDirectory", "[", "projectRoot", "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Project root:   \>\"", ",", "projectRoot"}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Notebook dir:   \>\"", ",", 
+      RowBox[{"NotebookDirectory", "[", "]"}]}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Kernel src dir: \>\"", ",", "srcRoot"}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.9824714109173965`*^9, 3.982471418273119*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"75563782-3579-1448-aea7-50f1ec3713ee"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Project root:   \"\>", 
+   "\[InvisibleSpace]", "\<\"C:\\\\Users\\\\User\\\\OneDrive - \
+Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\\\RADNO_tekstovi\\\\MATEMATIKA\\\\r - kontinuirani prijenos\\\\clanak \
+za casopis\\\\Computational Mathematics and Modeling\\\\cvt-symmetry-wm\"\>"}],
+  SequenceForm[
+  "Project root:   ", 
+   "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and Modeling\\cvt-symmetry-wm"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.9824714208190994`*^9, 3.9824719494670696`*^9, 3.982472392946476*^9, 
+   3.9824729533579597`*^9, 3.9824738382104263`*^9, {3.9824739638896294`*^9, 
+   3.9824739761101017`*^9}, 3.9824743398057404`*^9, 3.9824758590976715`*^9, 
+   3.982483586444166*^9, {3.982511827884735*^9, 3.982511855839388*^9}, 
+   3.9825121659903393`*^9, 3.982513632237465*^9, 3.982514653778084*^9, 
+   3.982517679184023*^9, 3.982518186406475*^9, 3.9826040332423077`*^9, 
+   3.9826050981638775`*^9, 3.982605230913721*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"9f3dd3f9-1123-6a41-b2ce-457f19a6b2ca"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Notebook dir:   \"\>", 
+   "\[InvisibleSpace]", "\<\"C:\\\\Users\\\\User\\\\OneDrive - \
+Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\\\RADNO_tekstovi\\\\MATEMATIKA\\\\r - kontinuirani prijenos\\\\clanak \
+za casopis\\\\Computational Mathematics and \
+Modeling\\\\cvt-symmetry-wm\\\\notebooks\\\\\"\>"}],
+  SequenceForm[
+  "Notebook dir:   ", 
+   "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\notebooks\\"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.9824714208190994`*^9, 3.9824719494670696`*^9, 3.982472392946476*^9, 
+   3.9824729533579597`*^9, 3.9824738382104263`*^9, {3.9824739638896294`*^9, 
+   3.9824739761101017`*^9}, 3.9824743398057404`*^9, 3.9824758590976715`*^9, 
+   3.982483586444166*^9, {3.982511827884735*^9, 3.982511855839388*^9}, 
+   3.9825121659903393`*^9, 3.982513632237465*^9, 3.982514653778084*^9, 
+   3.982517679184023*^9, 3.982518186406475*^9, 3.9826040332423077`*^9, 
+   3.9826050981638775`*^9, 3.9826052309415817`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"aaa1aae5-4d55-3049-833e-99bfc5212fce"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Kernel src dir: \"\>", 
+   "\[InvisibleSpace]", "\<\"C:\\\\Users\\\\User\\\\OneDrive - \
+Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\\\RADNO_tekstovi\\\\MATEMATIKA\\\\r - kontinuirani prijenos\\\\clanak \
+za casopis\\\\Computational Mathematics and \
+Modeling\\\\cvt-symmetry-wm\\\\src\\\\CVTPulley\\\\Kernel\"\>"}],
+  SequenceForm[
+  "Kernel src dir: ", 
+   "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\src\\CVTPulley\\Kernel"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.9824714208190994`*^9, 3.9824719494670696`*^9, 3.982472392946476*^9, 
+   3.9824729533579597`*^9, 3.9824738382104263`*^9, {3.9824739638896294`*^9, 
+   3.9824739761101017`*^9}, 3.9824743398057404`*^9, 3.9824758590976715`*^9, 
+   3.982483586444166*^9, {3.982511827884735*^9, 3.982511855839388*^9}, 
+   3.9825121659903393`*^9, 3.982513632237465*^9, 3.982514653778084*^9, 
+   3.982517679184023*^9, 3.982518186406475*^9, 3.9826040332423077`*^9, 
+   3.9826050981638775`*^9, 3.9826052309492226`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"cb399561-4f16-1b46-a2b5-123919ce957f"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"::", "Section", "::"}], "*)"}], 
+  RowBox[{"(*", "Loader", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"packageRoot", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "projectRoot", ",", "\"\<src\>\"", ",", "\"\<CVTPulley\>\"", 
+        ",", "\"\<Kernel\>\""}], "}"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"packageFile", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"packageRoot", ",", "\"\<Package.wl\>\""}], "}"}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"DirectoryQ", "[", "packageRoot", "]"}]}], ",", 
+      RowBox[{
+       RowBox[{"Print", "[", 
+        RowBox[{"\"\<[ERROR] Package root not found: \>\"", ",", 
+         "packageRoot"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Abort", "[", "]"}], ";"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"FileExistsQ", "[", "packageFile", "]"}]}], ",", 
+      RowBox[{
+       RowBox[{"Print", "[", 
+        RowBox[{"\"\<[ERROR] Package file not found: \>\"", ",", 
+         "packageFile"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Abort", "[", "]"}], ";"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"Get", "[", "packageFile", "]"}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Package root:   \>\"", ",", "packageRoot"}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Loaded package: \>\"", ",", "packageFile"}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.982512153013916*^9, 3.9825121538062916`*^9}, 
+   3.982517685706394*^9},
+ CellLabel->"In[15]:=",ExpressionUUID->"571813f7-12c2-3d4c-8aca-b9bb1deb2fed"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Package root:   \"\>", 
+   "\[InvisibleSpace]", "\<\"C:\\\\Users\\\\User\\\\OneDrive - \
+Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\\\RADNO_tekstovi\\\\MATEMATIKA\\\\r - kontinuirani prijenos\\\\clanak \
+za casopis\\\\Computational Mathematics and \
+Modeling\\\\cvt-symmetry-wm\\\\src\\\\CVTPulley\\\\Kernel\"\>"}],
+  SequenceForm[
+  "Package root:   ", 
+   "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\src\\CVTPulley\\Kernel"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.9825121711571007`*^9, 3.9825136375052834`*^9, 3.9825146589465656`*^9, {
+   3.9825176844298267`*^9, 3.9825176903251324`*^9}, 3.9825181916484203`*^9, 
+   3.9826040358674736`*^9},
+ CellLabel->
+  "During evaluation of \
+In[15]:=",ExpressionUUID->"f746f01f-019a-a446-8524-a56ac8868ccf"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Loaded package: \"\>", 
+   "\[InvisibleSpace]", "\<\"C:\\\\Users\\\\User\\\\OneDrive - \
+Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\\\RADNO_tekstovi\\\\MATEMATIKA\\\\r - kontinuirani prijenos\\\\clanak \
+za casopis\\\\Computational Mathematics and \
+Modeling\\\\cvt-symmetry-wm\\\\src\\\\CVTPulley\\\\Kernel\\\\Package.wl\"\>"}],
+  SequenceForm[
+  "Loaded package: ", 
+   "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\src\\CVTPulley\\Kernel\\Package.wl"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.9825121711571007`*^9, 3.9825136375052834`*^9, 3.9825146589465656`*^9, {
+   3.9825176844298267`*^9, 3.9825176903251324`*^9}, 3.9825181916484203`*^9, 
+   3.9826040358835278`*^9},
+ CellLabel->
+  "During evaluation of \
+In[15]:=",ExpressionUUID->"d666e8a4-fbf0-5f47-a628-08433644f25f"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Needs", "[", "\"\<MUnit`\>\"", "]"}], ";"}], "\n", 
+   RowBox[{"TestReport", "[", 
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{
+      "projectRoot", ",", "\"\<tests\>\"", ",", "\"\<SmokeTests.wlt\>\""}], 
+      "}"}], "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.9826048498056583`*^9, 3.9826048507890587`*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"8c8da6f8-03e6-f742-826e-50253569dea6"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["TestReportObject",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[{
+              InsetBox[
+               BoxData[
+                FormBox[
+                 PaneBox[
+                  DynamicBox[
+                   FEPrivate`FrontEndResource[
+                   "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                  ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.55]]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Title: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"Test Report: SmokeTests.wlt\"", "SummaryItem"]}], 
+               "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Success rate: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox["\"100%\"", ShowStringCharacters -> False], 1., 
+                    AutoDelete -> True], PercentForm], "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["10", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[{
+              InsetBox[
+               BoxData[
+                FormBox[
+                 PaneBox[
+                  DynamicBox[
+                   FEPrivate`FrontEndResource[
+                   "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                  ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.55]]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Title: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"Test Report: SmokeTests.wlt\"", "SummaryItem"]}], 
+               "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Success rate: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox["\"100%\"", ShowStringCharacters -> False], 1., 
+                    AutoDelete -> True], PercentForm], "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["10", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Success count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["10", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Time elapsed: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  
+                  TemplateBox[{
+                   "0.0321834`4.658146920852872", "\"s\"", "seconds", 
+                    "\"Seconds\""}, "Quantity", SyntaxForm -> Mod], 
+                  "SummaryItem"]}], "\[SpanFromLeft]"}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  TestReportObject[<|
+   "Title" -> "Test Report: SmokeTests.wlt", "Aborted" -> False, 
+    "TestResults" -> <|
+     4440044865559585236 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826052389151073`16.65377224552466*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "77ab9325-b6f7-46ec-862e-f135bdcc24cf", "TestID" -> 
+         "Smoke-01-Parameters", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SmokeTests.wlt", "EvaluationID" -> 
+         "17d80f75-5c8c-47a2-8212-0f69d56af45c", "Input" -> HoldForm[
+           And[
+            AssociationQ[$CellContext`params], 
+            Not[
+             FailureQ[$CellContext`params]]]], "ExpectedMessages" -> 
+         HoldForm[{}], "ActualOutput" -> HoldForm[True], 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.1505149978319915, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3808, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      1502757782738192586 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826052389151073`16.65377224552466*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "f3330522-4ee5-4fe1-a433-14fcec911c71", "TestID" -> 
+         "Smoke-02-Geometry", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SmokeTests.wlt", "EvaluationID" -> 
+         "ed9b2c2a-35b2-4840-88d8-fd506bcbbc47", "Input" -> HoldForm[
+           AssociationQ[
+            CVTPulley`Geometry`GeometrySummary[
+             $CellContext`params["rMin"], 
+             $CellContext`params["rMax"], 
+             $CellContext`params["d"]]]], "ExpectedMessages" -> HoldForm[{}], 
+         "ActualOutput" -> HoldForm[True], "ActualMessages" -> {}, 
+         "AbsoluteTimeUsed" -> 0``7.1505149978319915, "CPUTimeUsed" -> 0., 
+         "MemoryUsed" -> 4368, "IntermediateTestsTree" -> {}, 
+         "ExpectedOutput" -> HoldForm[True], "Outcome" -> "Success", 
+         "FailureType" -> None|>], 3595431333653615965 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826052389151073`16.65377224552466*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "c4918e19-9299-47d2-8354-8d4f9bf840d8", "TestID" -> 
+         "Smoke-03-RootFinding", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SmokeTests.wlt", "EvaluationID" -> 
+         "01cd46de-4477-4f8c-a0db-244b609d94a4", "Input" -> HoldForm[
+           CVTPulley`RootFinding`RootResultQ[
+            CVTPulley`RootFinding`FindRadiusRoot[
+             $CellContext`params["rMin"], {
+              $CellContext`params["rMin"], 
+              $CellContext`params["rMax"]}, $CellContext`params]]], 
+         "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> HoldForm[True],
+          "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.1505149978319915,
+          "CPUTimeUsed" -> 0., "MemoryUsed" -> 15336, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      6193193673433421987 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826052389151073`16.65377224552466*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "30c6d7f3-8119-4b81-a3e4-8d4e478cd758", "TestID" -> 
+         "Smoke-04-ImplicitMap", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SmokeTests.wlt", "EvaluationID" -> 
+         "e04bed2e-4acc-4251-847e-2d064db53677", "Input" -> HoldForm[
+           AssociationQ[
+            CVTPulley`ImplicitMap`ImplicitMapData[$CellContext`params]]], 
+         "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> HoldForm[True],
+          "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0.0321834`5.658146920852872, "CPUTimeUsed" -> 0.03200000000000003, 
+         "MemoryUsed" -> 4080, "IntermediateTestsTree" -> {}, 
+         "ExpectedOutput" -> HoldForm[True], "Outcome" -> "Success", 
+         "FailureType" -> None|>], 3443392168311125588 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826052390697532`16.65377224554152*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "b3152e45-b347-4134-81dc-7ddf2a1c14bb", "TestID" -> 
+         "Smoke-05-Symmetrization", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SmokeTests.wlt", "EvaluationID" -> 
+         "fc3ab9f3-ec21-447f-ae33-4857ec340b97", "Input" -> HoldForm[
+           And[
+            AssociationQ[$CellContext`symData], 
+            AssociationQ[$CellContext`symProfiles]]], "ExpectedMessages" -> 
+         HoldForm[{}], "ActualOutput" -> HoldForm[True], 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.150514997831988, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      3620225380009618478 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826052391171377`16.65377224554669*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "4a3e4c9e-75bb-46df-8201-901885f81361", "TestID" -> 
+         "Smoke-06-ErrorAnalysis", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SmokeTests.wlt", "EvaluationID" -> 
+         "eabbf108-51b9-43c5-8686-5189d620e04f", "Input" -> HoldForm[
+           And[
+            AssociationQ[$CellContext`errData], 
+            CVTPulley`ErrorAnalysis`ErrorSummaryQ[
+             $CellContext`errData["Summary"]]]], "ExpectedMessages" -> 
+         HoldForm[{}], "ActualOutput" -> HoldForm[True], 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.150514997831988, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      1245583188868377430 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826052391325613`16.65377224554837*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "c4b6e3ae-95ab-479e-a625-32f422f256cf", "TestID" -> 
+         "Smoke-07-QuadraticApproximation", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SmokeTests.wlt", "EvaluationID" -> 
+         "229df2bb-16dc-4a8f-a954-cfaa934b630e", "Input" -> HoldForm[
+           And[
+            AssociationQ[$CellContext`quadData], 
+            CVTPulley`QuadraticApproximation`QuadraticCoefficientQ[
+             $CellContext`quadData["Coefficients"]]]], "ExpectedMessages" -> 
+         HoldForm[{}], "ActualOutput" -> HoldForm[True], 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.150514997831988, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      7432587486932043571 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826052393354776`16.6537722455705*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "34b620b4-3396-4182-9764-253988037b34", "TestID" -> 
+         "Smoke-08-Tables", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SmokeTests.wlt", "EvaluationID" -> 
+         "013ef87d-120c-49b2-9024-aedc8aa2227b", "Input" -> HoldForm[
+           And[
+            ListQ[$CellContext`impTab], 
+            ListQ[$CellContext`symTab], 
+            ListQ[$CellContext`quadTab], 
+            ListQ[$CellContext`devTab]]], "ExpectedMessages" -> HoldForm[{}], 
+         "ActualOutput" -> HoldForm[True], "ActualMessages" -> {}, 
+         "AbsoluteTimeUsed" -> 0``7.1505149978319915, "CPUTimeUsed" -> 0., 
+         "MemoryUsed" -> 3744, "IntermediateTestsTree" -> {}, 
+         "ExpectedOutput" -> HoldForm[True], "Outcome" -> "Success", 
+         "FailureType" -> None|>], 4973186989680087462 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.982605239945096`16.65377224563698*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "6b5dc9ba-8b6b-4761-a4a7-06cf4805a439", "TestID" -> 
+         "Smoke-09-Figures", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SmokeTests.wlt", "EvaluationID" -> 
+         "8cf0c987-bd0e-41a7-a34a-f532f9ef4707", "Input" -> HoldForm[
+           And[
+            Or[
+            Head[$CellContext`impFig] === Graphics, Head[$CellContext`impFig] === 
+             Legended], 
+            Or[
+            Head[$CellContext`symFig] === Graphics, Head[$CellContext`symFig] === 
+             Legended], 
+            Or[
+            Head[$CellContext`quadFig] === Graphics, 
+             Head[$CellContext`quadFig] === Legended], 
+            Or[
+            Head[$CellContext`devFig] === Graphics, Head[$CellContext`devFig] === 
+             Legended]]], "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> 
+         HoldForm[True], "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0``7.1505149978319915, "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      5823856564699537789 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826052418031992`16.653772245839598*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "7fad19f3-13c6-4006-ac78-5d5cb7c9608a", "TestID" -> 
+         "Smoke-10-Export", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SmokeTests.wlt", "EvaluationID" -> 
+         "1cdc6e12-a0fd-4281-b124-5c16bd3885d6", "Input" -> HoldForm[
+           And[
+            CVTPulley`ExportTools`ExportResultQ[$CellContext`rawRes], 
+            CVTPulley`ExportTools`ExportResultQ[$CellContext`tabRes], 
+            CVTPulley`ExportTools`ExportResultQ[$CellContext`logRes], 
+            CVTPulley`ExportTools`ExportResultQ[$CellContext`figRes]]], 
+         "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> HoldForm[True],
+          "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.1505149978319915,
+          "CPUTimeUsed" -> 0.016000000000000014`, "MemoryUsed" -> 3760, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>]|>, 
+    "FailureResults" -> <||>, "TestsNotEvaluatedKeys" -> {}, 
+    "TestsFailedWrongResultsKeys" -> {}, "TestsFailedWithMessagesKeys" -> {}, 
+    "TestsSucceededKeys" -> {4440044865559585236, 1502757782738192586, 
+     3595431333653615965, 6193193673433421987, 3443392168311125588, 
+     3620225380009618478, 1245583188868377430, 7432587486932043571, 
+     4973186989680087462, 5823856564699537789}|>],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.9826048552972927`*^9, 3.9826049812887726`*^9, 
+  3.9826051063823166`*^9, 3.98260524202429*^9},
+ CellLabel->"Out[16]=",ExpressionUUID->"2385265f-bce1-cf41-9053-911a407c1cfb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Needs", "[", "\"\<MUnit`\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"testFile", "=", 
+     RowBox[{"ExpandFileName", "@", 
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<..\>\"", 
+         ",", "\"\<tests\>\"", ",", "\"\<RootFindingTests.wlt\>\""}], "}"}], 
+       "]"}]}]}], ";"}], "\n", 
+   RowBox[{"TestReport", "[", "testFile", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.982605465527605*^9, 3.982605466148144*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"97fca467-649b-8c4d-abbd-f6ff98d4bac7"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["TestReportObject",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[{
+              InsetBox[
+               BoxData[
+                FormBox[
+                 PaneBox[
+                  DynamicBox[
+                   FEPrivate`FrontEndResource[
+                   "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                  ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.55]]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Title: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                 "\"Test Report: RootFindingTests.wlt\"", "SummaryItem"]}], 
+               "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Success rate: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox["\"100%\"", ShowStringCharacters -> False], 1., 
+                    AutoDelete -> True], PercentForm], "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["10", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[{
+              InsetBox[
+               BoxData[
+                FormBox[
+                 PaneBox[
+                  DynamicBox[
+                   FEPrivate`FrontEndResource[
+                   "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                  ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.55]]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Title: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                 "\"Test Report: RootFindingTests.wlt\"", "SummaryItem"]}], 
+               "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Success rate: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox["\"100%\"", ShowStringCharacters -> False], 1., 
+                    AutoDelete -> True], PercentForm], "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["10", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Success count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["10", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Time elapsed: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  
+                  TemplateBox[{
+                   "0.0009999`3.1504715662121825", "\"s\"", "seconds", 
+                    "\"Seconds\""}, "Quantity", SyntaxForm -> Mod], 
+                  "SummaryItem"]}], "\[SpanFromLeft]"}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  TestReportObject[<|
+   "Title" -> "Test Report: RootFindingTests.wlt", "Aborted" -> False, 
+    "TestResults" -> <|
+     9108113012089605375 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.982605471234938`16.653772270858635*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "6d06df8b-6715-469a-8960-fa69ac9b2abd", "TestID" -> 
+         "Root-01-EndpointRootResultQ", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\RootFindingTests.wlt", "EvaluationID" -> 
+         "ae8967d2-bae9-4edd-8094-9914b4b165b5", "Input" -> HoldForm[
+           CVTPulley`RootFinding`RootResultQ[$CellContext`rootAtLeft]], 
+         "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> HoldForm[True],
+          "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.1505149978319915,
+          "CPUTimeUsed" -> 0., "MemoryUsed" -> 3808, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      4851093567845250782 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.982605471234938`16.653772270858635*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "e490c102-72db-4ee7-a09b-9862a1becbc8", "TestID" -> 
+         "Root-02-EndpointConverged", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\RootFindingTests.wlt", "EvaluationID" -> 
+         "6a7a92bb-4aa2-4dec-b2e2-53da86033474", "Input" -> HoldForm[
+           $CellContext`rootAtLeft["Converged"]], "ExpectedMessages" -> 
+         HoldForm[{}], "ActualOutput" -> HoldForm[True], 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0.0009999`4.1504715662121825, "CPUTimeUsed" -> 0., "MemoryUsed" -> 
+         4296, "IntermediateTestsTree" -> {}, "ExpectedOutput" -> 
+         HoldForm[True], "Outcome" -> "Success", "FailureType" -> None|>], 
+      420305449028332017 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826054712359379`16.65377227085874*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "6989dbe4-8d0b-473e-9cd2-ce7e0d089f7f", "TestID" -> 
+         "Root-03-EndpointResidualWithinTolerance", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\RootFindingTests.wlt", "EvaluationID" -> 
+         "5391a281-2ade-4aa9-b7aa-add74b481da1", "Input" -> HoldForm[Abs[
+             $CellContext`rootAtLeft["Residual"]] <= $CellContext`params[
+            "epsBis"]], "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> 
+         HoldForm[True], "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0``7.150514997831988, "CPUTimeUsed" -> 0., "MemoryUsed" -> 3832, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 229542272309085687 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826054712359379`16.65377227085874*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "56817f6d-8fe6-4fed-b202-4f586acfecd5", "TestID" -> 
+         "Root-04-EndpointRootInsideBracket", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\RootFindingTests.wlt", "EvaluationID" -> 
+         "797a5fb4-c71e-46da-b580-297ee2fcc0bf", "Input" -> HoldForm[
+           
+           And[$CellContext`rootAtLeft["Root"] >= $CellContext`params[
+             "rMin"], $CellContext`rootAtLeft["Root"] <= $CellContext`params[
+             "rMax"]]], "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> 
+         HoldForm[True], "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0``7.150514997831988, "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      6011664733662502406 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826054712359379`16.65377227085874*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "eefb4bf6-8973-43ad-9379-9354e5d990f7", "TestID" -> 
+         "Root-05-EndpointAcceptedImmediately", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\RootFindingTests.wlt", "EvaluationID" -> 
+         "483f781d-12c5-4b81-9ecc-2f3a032bc9bf", "Input" -> 
+         HoldForm[$CellContext`rootAtLeft["Iterations"] == 0], 
+         "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> HoldForm[True],
+          "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.1505149978319915,
+          "CPUTimeUsed" -> 0., "MemoryUsed" -> 3816, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      1673615930896283096 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.982605471236938`16.653772270858852*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "7057cd8d-808e-46f1-bf15-64cc8017cf68", "TestID" -> 
+         "Root-06-InteriorRootResultQ", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\RootFindingTests.wlt", "EvaluationID" -> 
+         "13aa7ec7-9fbc-4be1-8906-d788cdf4da46", "Input" -> HoldForm[
+           CVTPulley`RootFinding`RootResultQ[$CellContext`rootAtMid]], 
+         "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> HoldForm[True],
+          "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.1505149978319915,
+          "CPUTimeUsed" -> 0., "MemoryUsed" -> 3816, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 493004938801225165 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.982605471236938`16.653772270858852*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "756369f4-929f-4e84-9562-7de537a2bb13", "TestID" -> 
+         "Root-07-InteriorConverged", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\RootFindingTests.wlt", "EvaluationID" -> 
+         "57fe2cc6-0fdf-4043-a253-65b545098758", "Input" -> HoldForm[
+           $CellContext`rootAtMid["Converged"]], "ExpectedMessages" -> 
+         HoldForm[{}], "ActualOutput" -> HoldForm[True], 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.1505149978319915, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3808, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      8983429592810227628 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.982605471237938`16.65377227085896*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "7d47b430-cc3f-456b-accf-09d7e25fc3fd", "TestID" -> 
+         "Root-08-InteriorResidualWithinTolerance", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\RootFindingTests.wlt", "EvaluationID" -> 
+         "25ce1b2a-6d5f-4674-810e-0235809c1f0b", "Input" -> HoldForm[Abs[
+             $CellContext`rootAtMid["Residual"]] <= $CellContext`params[
+            "epsBis"]], "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> 
+         HoldForm[True], "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0``7.150514997831988, "CPUTimeUsed" -> 0., "MemoryUsed" -> 3832, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 784930051801243339 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.982605471237938`16.65377227085896*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "5dfd698a-be1b-4257-8017-8044a968164f", "TestID" -> 
+         "Root-09-InteriorRootInsideBracket", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\RootFindingTests.wlt", "EvaluationID" -> 
+         "8a3a2693-67ae-4eb0-936f-d0d09bbc2f25", "Input" -> HoldForm[
+           
+           And[$CellContext`rootAtMid["Root"] >= $CellContext`params[
+             "rMin"], $CellContext`rootAtMid["Root"] <= $CellContext`params[
+             "rMax"]]], "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> 
+         HoldForm[True], "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0``7.150514997831988, "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 953475045426961642 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.982605471237938`16.65377227085896*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "76e7597a-d16a-4d69-9102-b188e5959077", "TestID" -> 
+         "Root-10-InteriorIterationCountNonnegative", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\RootFindingTests.wlt", "EvaluationID" -> 
+         "e51ae963-67f0-400d-a436-c1d91949b5e8", "Input" -> 
+         HoldForm[$CellContext`rootAtMid["Iterations"] >= 0], 
+         "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> HoldForm[True],
+          "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.150514997831988, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3816, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>]|>, 
+    "FailureResults" -> <||>, "TestsNotEvaluatedKeys" -> {}, 
+    "TestsFailedWrongResultsKeys" -> {}, "TestsFailedWithMessagesKeys" -> {}, 
+    "TestsSucceededKeys" -> {9108113012089605375, 4851093567845250782, 
+     420305449028332017, 229542272309085687, 6011664733662502406, 
+     1673615930896283096, 493004938801225165, 8983429592810227628, 
+     784930051801243339, 953475045426961642}|>],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.9826054714817753`*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"d5c861ea-0b5c-3144-ab3e-900c81f03f0a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Needs", "[", "\"\<MUnit`\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"testFile", "=", 
+     RowBox[{"ExpandFileName", "@", 
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<..\>\"", 
+         ",", "\"\<tests\>\"", 
+         ",", "\"\<QuadraticApproximationTests.wlt\>\""}], "}"}], "]"}]}]}], 
+    ";"}], "\n", 
+   RowBox[{"TestReport", "[", "testFile", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.982605554975666*^9, 3.982605555943491*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"52076353-cf29-624a-9821-f7671e8075e8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["TestReportObject",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[{
+              InsetBox[
+               BoxData[
+                FormBox[
+                 PaneBox[
+                  DynamicBox[
+                   FEPrivate`FrontEndResource[
+                   "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                  ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.55]]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Title: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                 "\"Test Report: QuadraticApproximationTests.wlt\"", 
+                  "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Success rate: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox["\"100%\"", ShowStringCharacters -> False], 1., 
+                    AutoDelete -> True], PercentForm], "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["10", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[{
+              InsetBox[
+               BoxData[
+                FormBox[
+                 PaneBox[
+                  DynamicBox[
+                   FEPrivate`FrontEndResource[
+                   "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                  ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.55]]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Title: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                 "\"Test Report: QuadraticApproximationTests.wlt\"", 
+                  "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Success rate: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox["\"100%\"", ShowStringCharacters -> False], 1., 
+                    AutoDelete -> True], PercentForm], "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["10", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Success count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["10", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Time elapsed: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  
+                  TemplateBox[{
+                   "0``6.150514997831989", "\"s\"", "seconds", "\"Seconds\""},
+                    "Quantity", SyntaxForm -> Mod], "SummaryItem"]}], 
+               "\[SpanFromLeft]"}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  TestReportObject[<|
+   "Title" -> "Test Report: QuadraticApproximationTests.wlt", "Aborted" -> 
+    False, "TestResults" -> <|
+     8554991372334581139 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826055586175509`16.653772280387518*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "5164e8f4-7864-45f7-ab03-f2e650966a89", "TestID" -> 
+         "Quad-01-MidpointValueInRange", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\QuadraticApproximationTests.wlt", 
+         "EvaluationID" -> "f8e496a8-858d-4ae1-a408-7dfcbeec4ced", "Input" -> 
+         HoldForm[
+           And[
+            
+            NumericQ[$CellContext`xi], $CellContext`params[
+             "rMin"] <= $CellContext`xi <= $CellContext`params["rMax"]]], 
+         "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> HoldForm[True],
+          "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.1505149978319915,
+          "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      2309535414341301106 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826055586175509`16.653772280387518*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "5693603f-ade1-45e6-96af-9c89bd84079c", "TestID" -> 
+         "Quad-02-CoefficientStructure", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\QuadraticApproximationTests.wlt", 
+         "EvaluationID" -> "46f7c3ca-38c4-440a-aa07-1ed44be73508", "Input" -> 
+         HoldForm[
+           
+           CVTPulley`QuadraticApproximation`QuadraticCoefficientQ[$\
+CellContext`coeffs]], "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> 
+         HoldForm[True], "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0``7.1505149978319915, "CPUTimeUsed" -> 0., "MemoryUsed" -> 3808, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      4522535476617771255 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826055586175509`16.653772280387518*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "e6353172-aff9-4d00-ac0c-c43b69631ead", "TestID" -> 
+         "Quad-03-LeftEndpointCondition", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\QuadraticApproximationTests.wlt", 
+         "EvaluationID" -> "ed38170b-71f2-421c-ab2a-b6ad62df5d31", "Input" -> 
+         HoldForm[
+          Abs[$CellContext`fr[0] - $CellContext`params["rMin"]] < 10^(-10)], 
+         "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> HoldForm[True],
+          "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.1505149978319915,
+          "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      7651056902721086313 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826055586332986`16.653772280389234*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "1482ab21-7d5d-4f96-8bcb-cd3daa39a45b", "TestID" -> 
+         "Quad-04-RightEndpointCondition", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\QuadraticApproximationTests.wlt", 
+         "EvaluationID" -> "a2111f8c-cb92-41cb-af12-4713a2502d1d", "Input" -> 
+         HoldForm[
+          Abs[$CellContext`fr[1] - $CellContext`params["rMax"]] < 10^(-10)], 
+         "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> HoldForm[True],
+          "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.150514997831988, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      7472500546074612378 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826055586332986`16.653772280389234*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "721cc628-a39d-44b0-b117-758062c3cf5a", "TestID" -> 
+         "Quad-05-MidpointInterpolationCondition", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\QuadraticApproximationTests.wlt", 
+         "EvaluationID" -> "b3417295-0da1-4256-8cda-2f05ed68ddfe", "Input" -> 
+         HoldForm[Abs[$CellContext`fr[1/2] - $CellContext`xi] < 10^(-10)], 
+         "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> HoldForm[True],
+          "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.150514997831988, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      4266540657813720860 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826055586332986`16.653772280389234*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "bce29363-97d8-4c45-afd5-7001ba22189b", "TestID" -> 
+         "Quad-06-MirrorLeftEndpointCondition", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\QuadraticApproximationTests.wlt", 
+         "EvaluationID" -> "288bfe41-e738-41ee-ade5-ea640cac7dbc", "Input" -> 
+         HoldForm[
+          Abs[$CellContext`fR[0] - $CellContext`params["rMax"]] < 10^(-10)], 
+         "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> HoldForm[True],
+          "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.150514997831988, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3848, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      6408753634862145788 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826055586332986`16.653772280389234*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "9722b37d-353a-4482-8361-d1759f1b6b41", "TestID" -> 
+         "Quad-07-MirrorRightEndpointCondition", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\QuadraticApproximationTests.wlt", 
+         "EvaluationID" -> "3a6ba04e-efa2-4c3d-9bf4-0e7c5b9a62f3", "Input" -> 
+         HoldForm[
+          Abs[$CellContext`fR[1] - $CellContext`params["rMin"]] < 10^(-10)], 
+         "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> HoldForm[True],
+          "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.150514997831988, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      6672181256522595189 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826055586332986`16.653772280389234*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "3d58cf24-a554-4e37-96c0-682ad6859619", "TestID" -> 
+         "Quad-08-DataStructures", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\QuadraticApproximationTests.wlt", 
+         "EvaluationID" -> "b068589b-86ed-48f5-a244-b041fe4d4f7a", "Input" -> 
+         HoldForm[
+           And[
+            AssociationQ[$CellContext`quadData], 
+            AssociationQ[$CellContext`quadVals]]], "ExpectedMessages" -> 
+         HoldForm[{}], "ActualOutput" -> HoldForm[True], 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.150514997831988, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      4894945741095134600 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826055586332986`16.653772280389234*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "b7cee3fb-f696-4d7c-91fd-c55e1bd23e10", "TestID" -> 
+         "Quad-09-GridLengths", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\QuadraticApproximationTests.wlt", 
+         "EvaluationID" -> "7520b6d9-c959-458c-83bf-0d7fc8cbc650", "Input" -> 
+         HoldForm[
+           And[Length[
+              $CellContext`quadVals["tGrid"]] == $CellContext`params["nGrid"] + 
+             1, Length[
+              $CellContext`quadVals["rApproxGrid"]] == $CellContext`params[
+              "nGrid"] + 1, Length[
+              $CellContext`quadVals["RApproxGrid"]] == $CellContext`params[
+              "nGrid"] + 1]], "ExpectedMessages" -> HoldForm[{}], 
+         "ActualOutput" -> HoldForm[True], "ActualMessages" -> {}, 
+         "AbsoluteTimeUsed" -> 0``7.150514997831988, "CPUTimeUsed" -> 0., 
+         "MemoryUsed" -> 3744, "IntermediateTestsTree" -> {}, 
+         "ExpectedOutput" -> HoldForm[True], "Outcome" -> "Success", 
+         "FailureType" -> None|>], 573931364691101105 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826055586332986`16.653772280389234*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "94c3ac69-1c7a-4b28-bfd5-651b0ae689cd", "TestID" -> 
+         "Quad-10-DiscreteSymmetry", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\QuadraticApproximationTests.wlt", 
+         "EvaluationID" -> "5c7d7ccf-267e-4bf8-8bde-45ac07d8ac8e", "Input" -> 
+         HoldForm[Max[
+             Abs[$CellContext`quadVals["RApproxGrid"] - Reverse[
+               $CellContext`quadVals["rApproxGrid"]]]] < 10^(-10)], 
+         "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> HoldForm[True],
+          "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.150514997831988, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>]|>, 
+    "FailureResults" -> <||>, "TestsNotEvaluatedKeys" -> {}, 
+    "TestsFailedWrongResultsKeys" -> {}, "TestsFailedWithMessagesKeys" -> {}, 
+    "TestsSucceededKeys" -> {8554991372334581139, 2309535414341301106, 
+     4522535476617771255, 7651056902721086313, 7472500546074612378, 
+     4266540657813720860, 6408753634862145788, 6672181256522595189, 
+     4894945741095134600, 573931364691101105}|>],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.982605558649292*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"985ec285-ad15-6c42-9ff7-aecf5226fa39"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Needs", "[", "\"\<MUnit`\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"testFile", "=", 
+     RowBox[{"ExpandFileName", "@", 
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<..\>\"", 
+         ",", "\"\<tests\>\"", ",", "\"\<SymmetrizationTests.wlt\>\""}], 
+        "}"}], "]"}]}]}], ";"}], "\n", 
+   RowBox[{"TestReport", "[", "testFile", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.982605646726242*^9, 3.982605647853657*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"6e63cf01-463e-b847-adde-8a42edaafce8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["TestReportObject",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[{
+              InsetBox[
+               BoxData[
+                FormBox[
+                 PaneBox[
+                  DynamicBox[
+                   FEPrivate`FrontEndResource[
+                   "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                  ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.55]]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Title: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                 "\"Test Report: SymmetrizationTests.wlt\"", "SummaryItem"]}],
+                "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Success rate: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox["\"100%\"", ShowStringCharacters -> False], 1., 
+                    AutoDelete -> True], PercentForm], "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["10", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[{
+              InsetBox[
+               BoxData[
+                FormBox[
+                 PaneBox[
+                  DynamicBox[
+                   FEPrivate`FrontEndResource[
+                   "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                  ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.55]]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Title: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                 "\"Test Report: SymmetrizationTests.wlt\"", "SummaryItem"]}],
+                "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Success rate: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox["\"100%\"", ShowStringCharacters -> False], 1., 
+                    AutoDelete -> True], PercentForm], "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["10", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Success count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["10", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Time elapsed: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  
+                  TemplateBox[{
+                   "0``6.150514997831988", "\"s\"", "seconds", "\"Seconds\""},
+                    "Quantity", SyntaxForm -> Mod], "SummaryItem"]}], 
+               "\[SpanFromLeft]"}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  TestReportObject[<|
+   "Title" -> "Test Report: SymmetrizationTests.wlt", "Aborted" -> False, 
+    "TestResults" -> <|
+     3544171406881279709 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826056506493215`16.65377229042338*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "41317946-7b64-4c7e-878a-c54da88d111e", "TestID" -> 
+         "Sym-01-PairIterationStructure", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SymmetrizationTests.wlt", "EvaluationID" -> 
+         "f46101ef-39d1-4fdc-b80b-65a6b6102e12", "Input" -> HoldForm[
+           And[
+            AssociationQ[$CellContext`pairRes], $CellContext`pairRes["Type"] === 
+            "PairIteration"]], "ExpectedMessages" -> HoldForm[{}], 
+         "ActualOutput" -> HoldForm[True], "ActualMessages" -> {}, 
+         "AbsoluteTimeUsed" -> 0``7.150514997831988, "CPUTimeUsed" -> 0., 
+         "MemoryUsed" -> 3744, "IntermediateTestsTree" -> {}, 
+         "ExpectedOutput" -> HoldForm[True], "Outcome" -> "Success", 
+         "FailureType" -> None|>], 4295415185796019312 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826056506493215`16.65377229042338*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "60f0fc48-17c6-4b84-874b-b03a58972561", "TestID" -> 
+         "Sym-02-PairIterationConverged", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SymmetrizationTests.wlt", "EvaluationID" -> 
+         "25946731-58e6-420a-8770-549a97777074", "Input" -> HoldForm[
+           TrueQ[
+            $CellContext`pairRes["Converged"]]], "ExpectedMessages" -> 
+         HoldForm[{}], "ActualOutput" -> HoldForm[True], 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.150514997831988, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      7299104639827259355 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826056506652043`16.653772290425113*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "4b0d3b6e-b871-480b-aa86-72cdaaaaeaab", "TestID" -> 
+         "Sym-03-PairFinalErrorWithinTolerance", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SymmetrizationTests.wlt", "EvaluationID" -> 
+         "7f0ead5e-5cc7-46d1-90a2-07fcd095074e", "Input" -> 
+         HoldForm[$CellContext`pairRes[
+            "FinalState", "MaxCrossError"] <= $CellContext`pairRes[
+            "Tolerance"]], "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> 
+         HoldForm[True], "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0``7.150514997831988, "CPUTimeUsed" -> 0., "MemoryUsed" -> 3816, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      8110915712193246408 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826056506652043`16.653772290425113*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "1cb8e780-2726-4644-a0da-ab9f3682c886", "TestID" -> 
+         "Sym-04-MidpointStructure", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SymmetrizationTests.wlt", "EvaluationID" -> 
+         "c5d8bad9-9678-4c85-88da-c4d9ea4bba06", "Input" -> HoldForm[
+           And[
+            AssociationQ[$CellContext`midRes], $CellContext`midRes["Type"] === 
+            "MidpointIteration"]], "ExpectedMessages" -> HoldForm[{}], 
+         "ActualOutput" -> HoldForm[True], "ActualMessages" -> {}, 
+         "AbsoluteTimeUsed" -> 0``7.150514997831988, "CPUTimeUsed" -> 0., 
+         "MemoryUsed" -> 3744, "IntermediateTestsTree" -> {}, 
+         "ExpectedOutput" -> HoldForm[True], "Outcome" -> "Success", 
+         "FailureType" -> None|>], 4219840997508082662 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826056506652043`16.653772290425113*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "845434dd-a5f8-4614-8e47-76e8bd1b62a9", "TestID" -> 
+         "Sym-05-MidpointConverged", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SymmetrizationTests.wlt", "EvaluationID" -> 
+         "b8497a4d-73bf-4a85-aa1a-921ef97d3e67", "Input" -> HoldForm[
+           TrueQ[
+            $CellContext`midRes["Converged"]]], "ExpectedMessages" -> 
+         HoldForm[{}], "ActualOutput" -> HoldForm[True], 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.150514997831988, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 971920587514911623 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826056506652043`16.653772290425113*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "b6892fa8-4a57-4e9b-b67e-9ec59b9181e0", "TestID" -> 
+         "Sym-06-MidpointSymmetryCondition", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SymmetrizationTests.wlt", "EvaluationID" -> 
+         "59391195-35fb-408e-b03a-ba072f980621", "Input" -> 
+         HoldForm[
+          Abs[$CellContext`midRes["FinalR"] - $CellContext`midRes[
+             "Finalr"]] <= $CellContext`midRes["Tolerance"]], 
+         "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> HoldForm[True],
+          "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.150514997831988, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3840, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      7736199498667313657 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826056506652043`16.653772290425113*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "2106fab7-feae-426c-98b0-1a4e00b85ddd", "TestID" -> 
+         "Sym-07-FullSymmetrizationStructure", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SymmetrizationTests.wlt", "EvaluationID" -> 
+         "a8781da8-efff-4863-ba3c-5047ccd9b697", "Input" -> HoldForm[
+           And[
+            AssociationQ[$CellContext`symData], $CellContext`symData["Type"] === 
+            "FullSymmetrization"]], "ExpectedMessages" -> HoldForm[{}], 
+         "ActualOutput" -> HoldForm[True], "ActualMessages" -> {}, 
+         "AbsoluteTimeUsed" -> 0``7.150514997831988, "CPUTimeUsed" -> 0., 
+         "MemoryUsed" -> 3744, "IntermediateTestsTree" -> {}, 
+         "ExpectedOutput" -> HoldForm[True], "Outcome" -> "Success", 
+         "FailureType" -> None|>], 1727858583524589935 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826056506652043`16.653772290425113*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "8fabd86b-8e1d-4350-8911-ea81dbd0b2e1", "TestID" -> 
+         "Sym-08-ProfileLengths", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SymmetrizationTests.wlt", "EvaluationID" -> 
+         "570ff044-929e-43ff-afb2-ae567effac62", "Input" -> HoldForm[
+           And[
+            AssociationQ[$CellContext`profiles], Length[
+              $CellContext`profiles["tGrid"]] == $CellContext`params["nGrid"] + 
+             1, Length[
+              $CellContext`profiles["rGrid"]] == $CellContext`params["nGrid"] + 
+             1, Length[
+              $CellContext`profiles["RGrid"]] == $CellContext`params["nGrid"] + 
+             1]], "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> 
+         HoldForm[True], "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0``7.150514997831988, "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      1407332480086123428 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826056506652043`16.653772290425113*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "4a2bc5bf-f880-46ea-81f6-fc248ca2c5e9", "TestID" -> 
+         "Sym-09-DiscreteSymmetry", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SymmetrizationTests.wlt", "EvaluationID" -> 
+         "68cecc38-673c-4c73-bff4-bef1aa14080b", "Input" -> HoldForm[Max[
+             Abs[$CellContext`profiles["RGrid"] - Reverse[
+               $CellContext`profiles["rGrid"]]]] <= $CellContext`params[
+            "epsSym"]], "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> 
+         HoldForm[True], "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0``7.150514997831988, "CPUTimeUsed" -> 0., "MemoryUsed" -> 3864, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 712311843568287326 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826056506652043`16.653772290425113*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "7830e72d-ae7b-4522-9b7a-daaf1ee297ac", "TestID" -> 
+         "Sym-10-PairListStructure", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\SymmetrizationTests.wlt", "EvaluationID" -> 
+         "73dfbe8d-0e03-4a89-845e-4a526bbe86c9", "Input" -> HoldForm[
+           VectorQ[
+            $CellContext`profiles["Pairs"], MatchQ[#, {
+              PatternTest[
+               Blank[], NumericQ], 
+              PatternTest[
+               Blank[], NumericQ]}]& ]], "ExpectedMessages" -> HoldForm[{}], 
+         "ActualOutput" -> HoldForm[True], "ActualMessages" -> {}, 
+         "AbsoluteTimeUsed" -> 0``7.150514997831988, "CPUTimeUsed" -> 0., 
+         "MemoryUsed" -> 4128, "IntermediateTestsTree" -> {}, 
+         "ExpectedOutput" -> HoldForm[True], "Outcome" -> "Success", 
+         "FailureType" -> None|>]|>, "FailureResults" -> <||>, 
+    "TestsNotEvaluatedKeys" -> {}, "TestsFailedWrongResultsKeys" -> {}, 
+    "TestsFailedWithMessagesKeys" -> {}, 
+    "TestsSucceededKeys" -> {3544171406881279709, 4295415185796019312, 
+     7299104639827259355, 8110915712193246408, 4219840997508082662, 
+     971920587514911623, 7736199498667313657, 1727858583524589935, 
+     1407332480086123428, 712311843568287326}|>],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.982605650680891*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"dec5d1fe-e10e-4841-be55-7b6c40ec1f39"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Needs", "[", "\"\<MUnit`\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"testFile", "=", 
+     RowBox[{"ExpandFileName", "@", 
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<..\>\"", 
+         ",", "\"\<tests\>\"", ",", "\"\<GeometryTests.wlt\>\""}], "}"}], 
+       "]"}]}]}], ";"}], "\n", 
+   RowBox[{"TestReport", "[", "testFile", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.982605733742399*^9, 3.9826057345402164`*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"48415267-5770-e042-acc8-1ded9cbda841"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["TestReportObject",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[{
+              InsetBox[
+               BoxData[
+                FormBox[
+                 PaneBox[
+                  DynamicBox[
+                   FEPrivate`FrontEndResource[
+                   "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                  ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.55]]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Title: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                 "\"Test Report: GeometryTests.wlt\"", "SummaryItem"]}], 
+               "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Success rate: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox["\"100%\"", ShowStringCharacters -> False], 1., 
+                    AutoDelete -> True], PercentForm], "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["10", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[{
+              InsetBox[
+               BoxData[
+                FormBox[
+                 PaneBox[
+                  DynamicBox[
+                   FEPrivate`FrontEndResource[
+                   "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                  ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.55]]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Title: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                 "\"Test Report: GeometryTests.wlt\"", "SummaryItem"]}], 
+               "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Success rate: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox["\"100%\"", ShowStringCharacters -> False], 1., 
+                    AutoDelete -> True], PercentForm], "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["10", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Success count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["10", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Time elapsed: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  
+                  TemplateBox[{
+                   "0``6.150514997831991", "\"s\"", "seconds", "\"Seconds\""},
+                    "Quantity", SyntaxForm -> Mod], "SummaryItem"]}], 
+               "\[SpanFromLeft]"}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  TestReportObject[<|
+   "Title" -> "Test Report: GeometryTests.wlt", "Aborted" -> False, 
+    "TestResults" -> <|
+     7214423039013707983 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826057369698549`16.653772299836447*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "7cb5a702-658a-4e74-8602-828f9d1aa93f", "TestID" -> 
+         "Geom-01-DomainQ", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\GeometryTests.wlt", "EvaluationID" -> 
+         "389107a7-01e1-439f-900b-181a13d3a9fa", "Input" -> HoldForm[
+           
+           CVTPulley`Geometry`GeometryDomainQ[$CellContext`r, $CellContext`R, \
+$CellContext`d]], "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> 
+         HoldForm[True], "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0``7.1505149978319915, "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 71242172792880950 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826057369698549`16.653772299836447*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "58d8c861-234b-4bea-b585-a1abb5fe91ee", "TestID" -> 
+         "Geom-02-DomainCheck", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\GeometryTests.wlt", "EvaluationID" -> 
+         "c7ecd5b6-550f-4c27-bcb8-cb1698a2c18e", "Input" -> HoldForm[
+           AssociationQ[
+            
+            CVTPulley`Geometry`GeometryDomainCheck[$CellContext`r, \
+$CellContext`R, $CellContext`d]]], "ExpectedMessages" -> HoldForm[{}], 
+         "ActualOutput" -> HoldForm[True], "ActualMessages" -> {}, 
+         "AbsoluteTimeUsed" -> 0``7.1505149978319915, "CPUTimeUsed" -> 0., 
+         "MemoryUsed" -> 4120, "IntermediateTestsTree" -> {}, 
+         "ExpectedOutput" -> HoldForm[True], "Outcome" -> "Success", 
+         "FailureType" -> None|>], 3321228253158236996 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.982605736970857`16.653772299836554*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "774d64af-c25b-4440-88d0-96fdcee58373", "TestID" -> 
+         "Geom-03-ContactAngleOffset", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\GeometryTests.wlt", "EvaluationID" -> 
+         "953b878d-6d78-4004-9e57-0a28bf95bf9f", "Input" -> 
+         HoldForm[
+          Abs[CVTPulley`Geometry`ContactAngleOffset[$CellContext`r, \
+$CellContext`R, $CellContext`d] - 
+             ArcSin[($CellContext`R - $CellContext`r)/$CellContext`d]] < 
+           10^(-12)], "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> 
+         HoldForm[True], "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0``7.150514997831988, "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      3510112314678543712 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.982605736970857`16.653772299836554*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "8b7dd73f-a120-4004-a3f4-c80cbc1fb2d2", "TestID" -> 
+         "Geom-04-StraightSpanLength", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\GeometryTests.wlt", "EvaluationID" -> 
+         "6b5b7012-5636-4ef0-bb16-5654a0953aa6", "Input" -> 
+         HoldForm[
+          Abs[CVTPulley`Geometry`StraightSpanLength[$CellContext`r, \
+$CellContext`R, $CellContext`d] - 
+             Sqrt[$CellContext`d^2 - ($CellContext`R - $CellContext`r)^2]] < 
+           10^(-12)], "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> 
+         HoldForm[True], "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0``7.150514997831988, "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      5015579475039373894 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.982605736970857`16.653772299836554*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "01322147-1c70-4576-9f53-7febc4ab44b7", "TestID" -> 
+         "Geom-05-TotalStraightLength", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\GeometryTests.wlt", "EvaluationID" -> 
+         "81aea580-a2fe-4adc-8686-667f29e044f9", "Input" -> 
+         HoldForm[
+          Abs[CVTPulley`Geometry`TotalStraightLength[$CellContext`r, \
+$CellContext`R, $CellContext`d] - 2 
+             CVTPulley`Geometry`StraightSpanLength[$CellContext`r, \
+$CellContext`R, $CellContext`d]] < 10^(-12)], "ExpectedMessages" -> 
+         HoldForm[{}], "ActualOutput" -> HoldForm[True], 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.1505149978319915, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      6725632971801146096 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.982605736971855`16.653772299836664*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "20c0c20d-cfb7-48c0-a2c2-cb29fafad762", "TestID" -> 
+         "Geom-06-WrapAngleSum", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\GeometryTests.wlt", "EvaluationID" -> 
+         "d48cb2ab-4972-4530-86ee-7f22a6dda62e", "Input" -> 
+         HoldForm[
+          Abs[CVTPulley`Geometry`WrapAngleSmall[$CellContext`r, \
+$CellContext`R, $CellContext`d] + 
+             CVTPulley`Geometry`WrapAngleLarge[$CellContext`r, \
+$CellContext`R, $CellContext`d] - 2 Pi] < 10^(-12)], "ExpectedMessages" -> 
+         HoldForm[{}], "ActualOutput" -> HoldForm[True], 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.1505149978319915, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      9153354993475620556 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.982605736971855`16.653772299836664*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "d122ba77-e2a9-4d3e-8327-65489f420d8b", "TestID" -> 
+         "Geom-07-GeometrySummaryStructure", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\GeometryTests.wlt", "EvaluationID" -> 
+         "d9b42034-7c06-4d27-a5e3-649441551b75", "Input" -> HoldForm[
+           AssociationQ[$CellContext`geom]], "ExpectedMessages" -> 
+         HoldForm[{}], "ActualOutput" -> HoldForm[True], 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.1505149978319915, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3816, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      8371581361322635564 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826057369728549`16.653772299836778*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "1c668495-fd86-4fc7-81ed-96e8cf0dba69", "TestID" -> 
+         "Geom-08-SummaryStraightLength", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\GeometryTests.wlt", "EvaluationID" -> 
+         "7b0bd778-d692-4a4c-b7cf-8bd4d12d990f", "Input" -> 
+         HoldForm[
+          Abs[$CellContext`geom["totalStraightLength"] - 
+             CVTPulley`Geometry`TotalStraightLength[$CellContext`r, \
+$CellContext`R, $CellContext`d]] < 10^(-12)], "ExpectedMessages" -> 
+         HoldForm[{}], "ActualOutput" -> HoldForm[True], 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.1505149978319915, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      3562668649399035511 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826057369728549`16.653772299836778*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "10d50104-1c9b-4580-81d4-cea0658ab047", "TestID" -> 
+         "Geom-09-SummaryArcLength", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\GeometryTests.wlt", "EvaluationID" -> 
+         "b18fe672-713c-4e8d-bc0d-d497d0113e58", "Input" -> 
+         HoldForm[
+          Abs[$CellContext`geom["totalArcLength"] - 
+             CVTPulley`Geometry`TotalArcLength[$CellContext`r, \
+$CellContext`R, $CellContext`d]] < 10^(-12)], "ExpectedMessages" -> 
+         HoldForm[{}], "ActualOutput" -> HoldForm[True], 
+         "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.1505149978319915, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3824, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      8204850558758983280 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.9826057369738549`16.653772299836884*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "cb723d35-a5c9-405a-ab71-84d1e9c08d00", "TestID" -> 
+         "Geom-10-RadiusDifference", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\GeometryTests.wlt", "EvaluationID" -> 
+         "b69139f1-955c-4f59-934b-d2c9ade45347", "Input" -> 
+         HoldForm[
+          Abs[$CellContext`geom[
+              "radiusDifference"] - ($CellContext`R - $CellContext`r)] < 
+           10^(-12)], "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> 
+         HoldForm[True], "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0``7.1505149978319915, "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>]|>, 
+    "FailureResults" -> <||>, "TestsNotEvaluatedKeys" -> {}, 
+    "TestsFailedWrongResultsKeys" -> {}, "TestsFailedWithMessagesKeys" -> {}, 
+    "TestsSucceededKeys" -> {7214423039013707983, 71242172792880950, 
+     3321228253158236996, 3510112314678543712, 5015579475039373894, 
+     6725632971801146096, 9153354993475620556, 8371581361322635564, 
+     3562668649399035511, 8204850558758983280}|>],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.9826057369882946`*^9},
+ CellLabel->"Out[12]=",ExpressionUUID->"c311605a-5c07-5e4f-abc4-55585f31a819"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Needs", "[", "\"\<MUnit`\>\"", "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"testFile", "=", 
+     RowBox[{"ExpandFileName", "@", 
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<..\>\"", 
+         ",", "\"\<tests\>\"", ",", "\"\<ReproducibilityTests.wlt\>\""}], 
+        "}"}], "]"}]}]}], ";"}], "\n", 
+   RowBox[{"TestReport", "[", "testFile", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.9826058261485634`*^9, 3.9826058270402374`*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"267addb9-6618-dc45-acaa-e4e9e8621abb"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["TestReportObject",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[{
+              InsetBox[
+               BoxData[
+                FormBox[
+                 PaneBox[
+                  DynamicBox[
+                   FEPrivate`FrontEndResource[
+                   "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                  ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.55]]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Title: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                 "\"Test Report: ReproducibilityTests.wlt\"", 
+                  "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Success rate: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox["\"100%\"", ShowStringCharacters -> False], 1., 
+                    AutoDelete -> True], PercentForm], "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["5", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            GraphicsBox[{
+              InsetBox[
+               BoxData[
+                FormBox[
+                 PaneBox[
+                  DynamicBox[
+                   FEPrivate`FrontEndResource[
+                   "MUnitExpressions", "SuccessIcon"]], Alignment -> Center, 
+                  ImageSize -> 
+                  Dynamic[{
+                    Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], TraditionalForm]]]}, 
+             PlotRange -> {{0, 1}, {0, 1}}, Background -> GrayLevel[0.93], 
+             Axes -> False, AspectRatio -> 1, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}], Frame -> True, FrameTicks -> None, 
+             FrameStyle -> Directive[
+               Thickness[Tiny], 
+               GrayLevel[0.55]]], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Title: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                 "\"Test Report: ReproducibilityTests.wlt\"", 
+                  "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Success rate: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  TagBox[
+                   InterpretationBox[
+                    StyleBox["\"100%\"", ShowStringCharacters -> False], 1., 
+                    AutoDelete -> True], PercentForm], "SummaryItem"]}], 
+               RowBox[{
+                 TagBox["\"Tests count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["5", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Success count: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["5", "SummaryItem"]}], "\[SpanFromLeft]"}, {
+               RowBox[{
+                 TagBox["\"Time elapsed: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  
+                  TemplateBox[{
+                   "0``6.451544993495969", "\"s\"", "seconds", "\"Seconds\""},
+                    "Quantity", SyntaxForm -> Mod], "SummaryItem"]}], 
+               "\[SpanFromLeft]"}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  TestReportObject[<|
+   "Title" -> "Test Report: ReproducibilityTests.wlt", "Aborted" -> False, 
+    "TestResults" -> <|
+     3263218232152695257 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.982605830554595`16.653772310041656*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "f77ad34f-0717-4f43-bcbd-ac81b589ebbe", "TestID" -> 
+         "Repr-01-MidpointValue", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\ReproducibilityTests.wlt", "EvaluationID" -> 
+         "ef8cb173-f29b-4c39-a1ec-bdea73e228c9", "Input" -> 
+         HoldForm[Abs[$CellContext`xi - 20.91580089] < 10^(-6)], 
+         "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> HoldForm[True],
+          "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.150514997831988, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      2806148775533120266 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.982605830554595`16.653772310041656*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "5b84c513-1384-49d7-81f2-f142a87dc29f", "TestID" -> 
+         "Repr-02-CoefficientA", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\ReproducibilityTests.wlt", "EvaluationID" -> 
+         "39dace6d-1625-400a-89b6-736fd32dddff", "Input" -> 
+         HoldForm[Abs[$CellContext`coeffs["a"] + 3.66320356] < 10^(-6)], 
+         "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> HoldForm[True],
+          "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.150514997831988, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      3536006573751616456 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.982605830554595`16.653772310041656*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "961db16b-84fb-47a8-a81b-6b49bf509c82", "TestID" -> 
+         "Repr-03-CoefficientB", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\ReproducibilityTests.wlt", "EvaluationID" -> 
+         "3969f1c7-a36a-440f-baa0-83dc3192e52c", "Input" -> 
+         HoldForm[Abs[$CellContext`coeffs["b"] - 23.66320356] < 10^(-6)], 
+         "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> HoldForm[True],
+          "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.150514997831988, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      2453110121275086338 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.982605830554595`16.653772310041656*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "0f31506e-82ab-4e9e-9299-4b7c2c13d901", "TestID" -> 
+         "Repr-04-CoefficientC", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\ReproducibilityTests.wlt", "EvaluationID" -> 
+         "51e355b4-8e56-4316-9ef3-b8a092bd5971", "Input" -> 
+         HoldForm[Abs[$CellContext`coeffs["c"] - 10] < 10^(-10)], 
+         "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> HoldForm[True],
+          "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 0``7.150514997831988, 
+         "CPUTimeUsed" -> 0., "MemoryUsed" -> 3744, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>], 
+      2098901209881763461 -> 
+      TestObject[<|
+        "MetaInformation" -> None, "AbsoluteTime" -> 
+         3.982605830554595`16.653772310041656*^9, "SameTest" -> SameQ, 
+         "SameMessages" -> Testing`MessageMatchQ, "MemoryConstraint" -> 
+         DirectedInfinity[1], "TimeConstraint" -> DirectedInfinity[1], 
+         "CreationID" -> "83e750a3-4549-488d-abb5-b424b2c61791", "TestID" -> 
+         "Repr-05-ImplicitMapResidualScale", "TestFileName" -> 
+         "C:\\Users\\User\\OneDrive - Veleu\[CHacek]ili\[SHacek]te Velika \
+Gorica\\RADNO_tekstovi\\MATEMATIKA\\r - kontinuirani prijenos\\clanak za \
+casopis\\Computational Mathematics and \
+Modeling\\cvt-symmetry-wm\\tests\\ReproducibilityTests.wlt", "EvaluationID" -> 
+         "ded5add8-8728-4271-a94e-c79df8ce2833", "Input" -> 
+         HoldForm[$CellContext`errData["Summary", "MaxAbsResidual"] <= 
+           10^(-10)], "ExpectedMessages" -> HoldForm[{}], "ActualOutput" -> 
+         HoldForm[True], "ActualMessages" -> {}, "AbsoluteTimeUsed" -> 
+         0``7.150514997831988, "CPUTimeUsed" -> 0., "MemoryUsed" -> 3824, 
+         "IntermediateTestsTree" -> {}, "ExpectedOutput" -> HoldForm[True], 
+         "Outcome" -> "Success", "FailureType" -> None|>]|>, 
+    "FailureResults" -> <||>, "TestsNotEvaluatedKeys" -> {}, 
+    "TestsFailedWrongResultsKeys" -> {}, "TestsFailedWithMessagesKeys" -> {}, 
+    "TestsSucceededKeys" -> {3263218232152695257, 2806148775533120266, 
+     3536006573751616456, 2453110121275086338, 2098901209881763461}|>],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.9826058305820904`*^9},
+ CellLabel->"Out[15]=",ExpressionUUID->"fb3c8c19-d2a9-e045-a51e-eb7fa08a8050"]
+}, Open  ]]
+},
+WindowSize->{1428, 729.75},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification:>1. Inherited,
+FrontEndVersion->"14.2 for Microsoft Windows (64-bit) (March 14, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"10f9d930-6bcb-7843-a1d9-f37ac7711578"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 2916, 80, 408, "Input",ExpressionUUID->"75563782-3579-1448-aea7-50f1ec3713ee"],
+Cell[CellGroupData[{
+Cell[3517, 106, 1234, 23, 22, "Print",ExpressionUUID->"9f3dd3f9-1123-6a41-b2ce-457f19a6b2ca"],
+Cell[4754, 131, 1270, 25, 39, "Print",ExpressionUUID->"aaa1aae5-4d55-3049-833e-99bfc5212fce"],
+Cell[6027, 158, 1294, 25, 39, "Print",ExpressionUUID->"cb399561-4f16-1b46-a2b5-123919ce957f"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7370, 189, 1997, 52, 313, "Input",ExpressionUUID->"571813f7-12c2-3d4c-8aca-b9bb1deb2fed"],
+Cell[CellGroupData[{
+Cell[9392, 245, 981, 21, 39, "Print",ExpressionUUID->"f746f01f-019a-a446-8524-a56ac8868ccf"],
+Cell[10376, 268, 1007, 21, 39, "Print",ExpressionUUID->"d666e8a4-fbf0-5f47-a628-08433644f25f"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11432, 295, 500, 12, 66, "Input",ExpressionUUID->"8c8da6f8-03e6-f742-826e-50253569dea6"],
+Cell[11935, 309, 21315, 393, 59, "Output",ExpressionUUID->"2385265f-bce1-cf41-9053-911a407c1cfb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33287, 707, 701, 17, 104, "Input",ExpressionUUID->"97fca467-649b-8c4d-abbd-f6ff98d4bac7"],
+Cell[33991, 726, 20155, 357, 59, "Output",ExpressionUUID->"d5c861ea-0b5c-3144-ab3e-900c81f03f0a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[54183, 1088, 719, 18, 104, "Input",ExpressionUUID->"52076353-cf29-624a-9821-f7671e8075e8"],
+Cell[54905, 1108, 20728, 378, 59, "Output",ExpressionUUID->"985ec285-ad15-6c42-9ff7-aecf5226fa39"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[75670, 1491, 705, 17, 104, "Input",ExpressionUUID->"6e63cf01-463e-b847-adde-8a42edaafce8"],
+Cell[76378, 1510, 20761, 375, 59, "Output",ExpressionUUID->"dec5d1fe-e10e-4841-be55-7b6c40ec1f39"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[97176, 1890, 701, 17, 104, "Input",ExpressionUUID->"48415267-5770-e042-acc8-1ded9cbda841"],
+Cell[97880, 1909, 20809, 381, 59, "Output",ExpressionUUID->"c311605a-5c07-5e4f-abc4-55585f31a819"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[118726, 2295, 711, 17, 104, "Input",ExpressionUUID->"267addb9-6618-dc45-acaa-e4e9e8621abb"],
+Cell[119440, 2314, 13727, 260, 78, "Output",ExpressionUUID->"fb3c8c19-d2a9-e045-a51e-eb7fa08a8050"]
+}, Open  ]]
+}
+]
+*)
+
