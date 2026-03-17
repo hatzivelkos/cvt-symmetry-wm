@@ -1,0 +1,283 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     10143,        273]
+NotebookOptionsPosition[      9409,        255]
+NotebookOutlinePosition[      9812,        271]
+CellTagsIndexPosition[      9769,        268]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+CVTPulley \[LongDash] Reproduce Example 1 and Figure 2
+\
+\>", "Text",
+ CellChangeTimes->{{3.9827685339168377`*^9, 
+  3.9827685597375946`*^9}},ExpressionUUID->"8513d7e1-a372-ca48-b83e-\
+117b04865270"],
+
+Cell["\<\
+This notebook reproduces the initial implicit - map computation for Example 1 \
+from the article and generates the corresponding Figure 2.
+
+Before using this notebook, evaluate 00 _LoadProject . nb or evaluate the \
+root and loader cells locally so that the package is available .
+  \
+\>", "Text",
+ CellChangeTimes->{{3.9827685749664345`*^9, 
+  3.982768601779894*^9}},ExpressionUUID->"d76a8c0c-22e5-a543-9e23-\
+4c316259a03a"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"::", "Section", "::"}], "*)"}], 
+  RowBox[{"(*", 
+   RowBox[{"Example", " ", "1", " ", "parameters"}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"params0", "=", 
+     RowBox[{"CVTPulley`TypesAndValidation`MakeParameters", "[", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<rMin\>\"", "->", "10"}], ",", 
+        RowBox[{"\"\<rMax\>\"", "->", "30"}], ",", 
+        RowBox[{"\"\<d\>\"", "->", "70"}], ",", 
+        RowBox[{"\"\<nGrid\>\"", "->", "100"}], ",", 
+        RowBox[{"\"\<epsBis\>\"", "->", 
+         RowBox[{"10", "^", 
+          RowBox[{"-", "12"}]}]}], ",", 
+        RowBox[{"\"\<epsSym\>\"", "->", 
+         RowBox[{"10", "^", 
+          RowBox[{"-", "6"}]}]}], ",", 
+        RowBox[{"\"\<workingPrecision\>\"", "->", "30"}], ",", 
+        RowBox[{"\"\<exportBaseName\>\"", "->", "\"\<example1\>\""}]}], 
+       "|>"}], "]"}]}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"params", "=", 
+     RowBox[{
+     "CVTPulley`BeltLength`SetReferenceBeltLength", "[", "params0", "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Reference belt length L0 = \>\"", ",", 
+      RowBox[{"NumberForm", "[", 
+       RowBox[{
+        RowBox[{"N", "[", 
+         RowBox[{
+          RowBox[{"params", "[", "\"\<beltLength\>\"", "]"}], ",", "12"}], 
+         "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"12", ",", "7"}], "}"}]}], "]"}]}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.98276861136775*^9, 
+  3.9827686405764904`*^9}},ExpressionUUID->"477ac0cb-7861-534a-a295-\
+54093e5f658d"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"::", "Section", "::"}], "*)"}], 
+  RowBox[{"(*", 
+   RowBox[{"Implicit", " ", "map", " ", "data"}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"mapData", "=", 
+     RowBox[{"CVTPulley`ImplicitMap`ImplicitMapData", "[", "params", "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Grid size: \>\"", ",", 
+      RowBox[{"Length", "[", 
+       RowBox[{"mapData", "[", "\"\<tGrid\>\"", "]"}], "]"}]}], "]"}], ";"}], 
+   "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<First point: \>\"", ",", 
+      RowBox[{"First", "[", 
+       RowBox[{"mapData", "[", "\"\<Pairs\>\"", "]"}], "]"}]}], "]"}], ";"}], 
+   "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Last point:  \>\"", ",", 
+      RowBox[{"Last", "[", 
+       RowBox[{"mapData", "[", "\"\<Pairs\>\"", "]"}], "]"}]}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.98276863373699*^9, 3.9827686466385555`*^9}},
+ CellLabel->"In[31]:=",ExpressionUUID->"284e689d-2b72-2144-a55c-20df2f1dc6ef"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"::", "Section", "::"}], "*)"}], 
+  RowBox[{"(*", 
+   RowBox[{"Figure", " ", "2"}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"tGrid2", "=", 
+     RowBox[{"mapData", "[", "\"\<tGrid\>\"", "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"rGrid2", "=", 
+     RowBox[{"mapData", "[", "\"\<rGrid\>\"", "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"RGrid2", "=", 
+     RowBox[{"mapData", "[", "\"\<RGrid\>\"", "]"}]}], ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"linearComparison", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"params", "[", "\"\<rMax\>\"", "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         RowBox[{"params", "[", "\"\<rMin\>\"", "]"}]}], "}"}]}], "}"}]}], 
+    ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"fig2", "=", 
+     RowBox[{"Show", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"ListLinePlot", "[", 
+          RowBox[{
+           RowBox[{"Transpose", "[", 
+            RowBox[{"{", 
+             RowBox[{"tGrid2", ",", "rGrid2"}], "}"}], "]"}], ",", 
+           RowBox[{"PlotStyle", "->", 
+            RowBox[{"Directive", "[", 
+             RowBox[{"Black", ",", 
+              RowBox[{"AbsoluteThickness", "[", "1.0", "]"}]}], "]"}]}], ",", 
+           RowBox[{"InterpolationOrder", "->", "1"}]}], "]"}], ",", 
+         RowBox[{"ListLinePlot", "[", 
+          RowBox[{
+           RowBox[{"Transpose", "[", 
+            RowBox[{"{", 
+             RowBox[{"tGrid2", ",", "RGrid2"}], "}"}], "]"}], ",", 
+           RowBox[{"PlotStyle", "->", 
+            RowBox[{"Directive", "[", 
+             RowBox[{"Black", ",", 
+              RowBox[{"AbsoluteThickness", "[", "2.0", "]"}], ",", "Dotted"}],
+              "]"}]}], ",", 
+           RowBox[{"InterpolationOrder", "->", "1"}]}], "]"}], ",", 
+         RowBox[{"ListLinePlot", "[", 
+          RowBox[{"linearComparison", ",", 
+           RowBox[{"PlotStyle", "->", 
+            RowBox[{"Directive", "[", 
+             RowBox[{"Black", ",", 
+              RowBox[{"AbsoluteThickness", "[", "0.9", "]"}], ",", 
+              RowBox[{"Dashing", "[", 
+               RowBox[{"{", 
+                RowBox[{"0.02", ",", "0.02"}], "}"}], "]"}]}], "]"}]}], ",", 
+           RowBox[{"InterpolationOrder", "->", "1"}]}], "]"}]}], "}"}], ",", 
+       RowBox[{"Axes", "->", "True"}], ",", 
+       RowBox[{"Frame", "->", "False"}], ",", 
+       RowBox[{"AxesOrigin", "->", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+       RowBox[{"AxesStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Black", ",", 
+          RowBox[{"AbsoluteThickness", "[", "0.8", "]"}]}], "]"}]}], ",", 
+       RowBox[{"TicksStyle", "->", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Black", ",", "12"}], "]"}]}], ",", 
+       RowBox[{"PlotRange", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "0.09"}], ",", "1.12"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "2"}], ",", "33"}], "}"}]}], "}"}]}], ",", 
+       RowBox[{"ImageSize", "->", "700"}], ",", 
+       RowBox[{"AspectRatio", "->", "0.62"}], ",", 
+       RowBox[{"PlotRangePadding", "->", 
+        RowBox[{"Scaled", "[", "0.02", "]"}]}], ",", 
+       RowBox[{"Epilog", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Inset", "[", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{"\"\<r(t)\>\"", ",", "16", ",", "Black", ",", "Italic"}],
+              "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0.92", ",", "30.2"}], "}"}]}], "]"}], ",", 
+          RowBox[{"Inset", "[", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"Subscript", "[", 
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{"\"\<R\>\"", ",", "Italic"}], "]"}], 
+                ",", "\"\<i\>\""}], "]"}], ",", "16", ",", "Black"}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0.93", ",", "15.6"}], "}"}]}], "]"}], ",", 
+          RowBox[{"Inset", "[", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{"\"\<t\>\"", ",", "15", ",", "Black", ",", "Italic"}], 
+             "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1.1", ",", 
+              RowBox[{"-", "2"}]}], "}"}]}], "]"}], ",", 
+          RowBox[{"Rotate", "[", 
+           RowBox[{
+            RowBox[{"Inset", "[", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{"\"\<radius [cm]\>\"", ",", "15", ",", "Black"}], 
+               "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "0.08"}], ",", "16.5"}], "}"}]}], "]"}], ",", 
+            RowBox[{"Pi", "/", "2"}]}], "]"}]}], "}"}]}]}], "]"}]}], ";"}], 
+   "\n", "\[IndentingNewLine]", "fig2"}]}]], "Input",
+ CellChangeTimes->{{3.9827686695743504`*^9, 3.982768673872772*^9}, {
+  3.9827689885751896`*^9, 3.9827690071068935`*^9}},
+ CellLabel->"In[43]:=",ExpressionUUID->"28936cd4-4e98-fa41-bee3-482b9d08455b"]
+},
+WindowSize->{1440, 741.75},
+WindowMargins->{{-6, Automatic}, {Automatic, -6}},
+FrontEndVersion->"14.2 for Microsoft Windows (64-bit) (March 14, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"a6a892de-415e-b045-af40-454f34871c30"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 209, 6, 55, "Text",ExpressionUUID->"8513d7e1-a372-ca48-b83e-117b04865270"],
+Cell[766, 28, 435, 10, 99, "Text",ExpressionUUID->"d76a8c0c-22e5-a543-9e23-4c316259a03a"],
+Cell[1204, 40, 1720, 45, 180, "Input",ExpressionUUID->"477ac0cb-7861-534a-a295-54093e5f658d"],
+Cell[2927, 87, 1165, 31, 161, "Input",ExpressionUUID->"284e689d-2b72-2144-a55c-20df2f1dc6ef"],
+Cell[4095, 120, 5310, 133, 351, "Input",ExpressionUUID->"28936cd4-4e98-fa41-bee3-482b9d08455b"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

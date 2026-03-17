@@ -1,0 +1,241 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      7875,        233]
+NotebookOptionsPosition[      7223,        216]
+NotebookOutlinePosition[      7633,        232]
+CellTagsIndexPosition[      7590,        229]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+
+CVTPulley \[LongDash] Load Project
+
+This notebook initializes the local project environment and loads the package
+from src/CVTPulley/Kernel/Package.wl.
+
+Expected repository structure:
+
+cvt-symmetry-wm/
+  notebooks/
+  src/
+    CVTPulley/
+      Kernel/
+        Package.wl
+  tests/
+  output/
+
+Usage:
+1. Open this notebook from the notebooks/ folder.
+2. Evaluate the cells below in order.
+3. The package will be loaded and ready for use in subsequent notebooks.\
+\>", "Text",
+ CellChangeTimes->{{3.982768289181795*^9, 
+  3.9827683025505867`*^9}},ExpressionUUID->"f9ba541d-0552-7d44-b122-\
+d4473fc37dff"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"::", "Section", "::"}], "*)"}], 
+  RowBox[{"(*", 
+   RowBox[{"Root", " ", "cell"}], "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"$HistoryLength", "=", "0"}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"projectRoot", "=", 
+     RowBox[{"ExpandFileName", "@", 
+      RowBox[{"FileNameJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<..\>\""}], "}"}], 
+       "]"}]}]}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"DirectoryQ", "[", "projectRoot", "]"}]}], ",", 
+      RowBox[{
+       RowBox[{"Print", "[", 
+        RowBox[{"\"\<[ERROR] Project root not found: \>\"", ",", 
+         "projectRoot"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Abort", "[", "]"}], ";"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"notebooksRoot", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"projectRoot", ",", "\"\<notebooks\>\""}], "}"}], "]"}]}], 
+    ";"}], "\n", 
+   RowBox[{
+    RowBox[{"srcRoot", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "projectRoot", ",", "\"\<src\>\"", ",", "\"\<CVTPulley\>\"", 
+        ",", "\"\<Kernel\>\""}], "}"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"testsRoot", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"projectRoot", ",", "\"\<tests\>\""}], "}"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"outputRoot", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"projectRoot", ",", "\"\<output\>\""}], "}"}], "]"}]}], ";"}], 
+   "\n", 
+   RowBox[{
+    RowBox[{"examplesRoot", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"projectRoot", ",", "\"\<examples\>\""}], "}"}], "]"}]}], 
+    ";"}], "\n", 
+   RowBox[{
+    RowBox[{"docsRoot", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"projectRoot", ",", "\"\<docs\>\""}], "}"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"SetDirectory", "[", "projectRoot", "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Project root:   \>\"", ",", "projectRoot"}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Notebook dir:   \>\"", ",", 
+      RowBox[{"NotebookDirectory", "[", "]"}]}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Kernel src dir: \>\"", ",", "srcRoot"}], "]"}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.9827683069413204`*^9, 3.98276833229286*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"f8d241e0-1dc7-ba4c-8175-0ab778376f3c"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"::", "Section", "::"}], "*)"}], 
+  RowBox[{"(*", "Loader", "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"packageFile", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"srcRoot", ",", "\"\<Package.wl\>\""}], "}"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"DirectoryQ", "[", "srcRoot", "]"}]}], ",", 
+      RowBox[{
+       RowBox[{"Print", "[", 
+        RowBox[{"\"\<[ERROR] Kernel source directory not found: \>\"", ",", 
+         "srcRoot"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Abort", "[", "]"}], ";"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"!", 
+       RowBox[{"FileExistsQ", "[", "packageFile", "]"}]}], ",", 
+      RowBox[{
+       RowBox[{"Print", "[", 
+        RowBox[{"\"\<[ERROR] Package file not found: \>\"", ",", 
+         "packageFile"}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Abort", "[", "]"}], ";"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"Get", "[", "packageFile", "]"}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Loaded package: \>\"", ",", "packageFile"}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.982768346394354*^9, 3.9827683483226852`*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"9639635e-a53f-8745-8112-3bd263f0a655"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"::", "Section", "::"}], "*)"}], 
+  RowBox[{"(*", 
+   RowBox[{"Quick", " ", "sanity", " ", "check"}], "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"params0", "=", 
+     RowBox[{"CVTPulley`TypesAndValidation`MakeParameters", "[", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<rMin\>\"", "->", "10"}], ",", 
+        RowBox[{"\"\<rMax\>\"", "->", "30"}], ",", 
+        RowBox[{"\"\<d\>\"", "->", "70"}], ",", 
+        RowBox[{"\"\<nGrid\>\"", "->", "10"}], ",", 
+        RowBox[{"\"\<workingPrecision\>\"", "->", "30"}]}], "|>"}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"params", "=", 
+     RowBox[{
+     "CVTPulley`BeltLength`SetReferenceBeltLength", "[", "params0", "]"}]}], 
+    ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Parameters loaded: \>\"", ",", 
+      RowBox[{"AssociationQ", "[", "params", "]"}]}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<Reference belt length: \>\"", ",", 
+      RowBox[{"NumberForm", "[", 
+       RowBox[{
+        RowBox[{"N", "[", 
+         RowBox[{
+          RowBox[{"params", "[", "\"\<beltLength\>\"", "]"}], ",", "12"}], 
+         "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"12", ",", "7"}], "}"}]}], "]"}]}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.982768364485773*^9, 3.9827683654614277`*^9}, 
+   3.9827684503753624`*^9},
+ CellLabel->"In[24]:=",ExpressionUUID->"dd25d30c-30c9-574f-9331-327987bf7429"]
+},
+WindowSize->{581.25, 648.75},
+WindowMargins->{{Automatic, 25.5}, {14.25, Automatic}},
+FrontEndVersion->"14.2 for Microsoft Windows (64-bit) (March 14, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"8a498ca0-529e-eb45-9f66-1297fd4620eb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 610, 25, 492, "Text",ExpressionUUID->"f9ba541d-0552-7d44-b122-d4473fc37dff"],
+Cell[1167, 47, 2918, 81, 465, "Input",ExpressionUUID->"f8d241e0-1dc7-ba4c-8175-0ab778376f3c"],
+Cell[4088, 130, 1552, 41, 294, "Input",ExpressionUUID->"9639635e-a53f-8745-8112-3bd263f0a655"],
+Cell[5643, 173, 1576, 41, 218, "Input",ExpressionUUID->"dd25d30c-30c9-574f-9331-327987bf7429"]
+}
+]
+*)
+
