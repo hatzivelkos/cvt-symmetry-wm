@@ -10,24 +10,25 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     22202,        580]
-NotebookOptionsPosition[     21177,        559]
-NotebookOutlinePosition[     21580,        575]
-CellTagsIndexPosition[     21537,        572]
+NotebookDataLength[     22305,        582]
+NotebookOptionsPosition[     21281,        561]
+NotebookOutlinePosition[     21682,        577]
+CellTagsIndexPosition[     21639,        574]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell["\<\
-CVTPulley\[LongDash]Reproduce Table 2 and Figure 5
+CVTPulley\[LongDash]Reproduce Table 3 and Figure 5
 \
 \>", "Text",
- CellChangeTimes->{{3.9827697854986057`*^9, 
-  3.9827698012484093`*^9}},ExpressionUUID->"e6c7bacc-c32a-0d47-9fba-\
+ CellChangeTimes->{{3.9827697854986057`*^9, 3.9827698012484093`*^9}, {
+  3.982821540885128*^9, 
+  3.9828215409969254`*^9}},ExpressionUUID->"e6c7bacc-c32a-0d47-9fba-\
 545eef6b787f"],
 
 Cell["\<\
-This notebook reproduces Table 2 and Figure 5 from the article.
+This notebook reproduces Table 3 and Figure 5 from the article.
 
 It computes the midpoint value xi by midpoint iteration, constructs the
 quadratic approximation of the symmetric solution, and compares it with the \
@@ -37,8 +38,9 @@ Before using this notebook, evaluate 00_LoadProject.nb so that the package
 is loaded.
 \
 \>", "Text",
- CellChangeTimes->{{3.982769805044218*^9, 
-  3.9827698411578865`*^9}},ExpressionUUID->"8021c2c6-1a15-0d45-9b6d-\
+ CellChangeTimes->{{3.982769805044218*^9, 3.9827698411578865`*^9}, {
+  3.9828215434772186`*^9, 
+  3.9828215436047096`*^9}},ExpressionUUID->"8021c2c6-1a15-0d45-9b6d-\
 6004869ae2e0"],
 
 Cell[BoxData[
@@ -557,8 +559,8 @@ Cell[BoxData[
  CellLabel->
   "In[116]:=",ExpressionUUID->"22c75cd1-14c2-074e-9da4-89460463df87"]
 },
-WindowSize->{1440, 741.75},
-WindowMargins->{{-6, Automatic}, {Automatic, -6}},
+WindowSize->{1428, 735.75},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
 FrontEndVersion->"14.2 for Microsoft Windows (64-bit) (March 14, 2025)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"e81474da-de1f-3b42-891d-4b7aaf2f6c16"
@@ -574,17 +576,15 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[554, 20, 205, 6, 55, "Text",ExpressionUUID->"e6c7bacc-c32a-0d47-9fba-545eef6b787f"],
-Cell[762, 28, 483, 13, 186, "Text",ExpressionUUID->"8021c2c6-1a15-0d45-9b6d-6004869ae2e0"],
-Cell[1248, 43, 1762, 44, 199, "Input",ExpressionUUID->"7ae4d9bf-aa04-1948-b240-c7a417c89cba"],
-Cell[3013, 89, 1312, 32, 218, "Input",ExpressionUUID->"3552740a-cbb1-2347-bbbd-2196cba6249f"],
-Cell[4328, 123, 3636, 95, 275, "Input",ExpressionUUID->"69018b34-a5eb-744e-adf2-e7ffa309f10b"],
-Cell[7967, 220, 1988, 48, 351, "Input",ExpressionUUID->"281fd518-02a7-2543-8780-a1fac202e68e"],
-Cell[9958, 270, 4259, 117, 560, "Input",ExpressionUUID->"56ded0e7-4287-1843-af01-89d1b8f056cb"],
-Cell[14220, 389, 6953, 168, 351, "Input",ExpressionUUID->"22c75cd1-14c2-074e-9da4-89460463df87"]
+Cell[554, 20, 256, 7, 55, "Text",ExpressionUUID->"e6c7bacc-c32a-0d47-9fba-545eef6b787f"],
+Cell[813, 29, 536, 14, 186, "Text",ExpressionUUID->"8021c2c6-1a15-0d45-9b6d-6004869ae2e0"],
+Cell[1352, 45, 1762, 44, 199, "Input",ExpressionUUID->"7ae4d9bf-aa04-1948-b240-c7a417c89cba"],
+Cell[3117, 91, 1312, 32, 218, "Input",ExpressionUUID->"3552740a-cbb1-2347-bbbd-2196cba6249f"],
+Cell[4432, 125, 3636, 95, 275, "Input",ExpressionUUID->"69018b34-a5eb-744e-adf2-e7ffa309f10b"],
+Cell[8071, 222, 1988, 48, 351, "Input",ExpressionUUID->"281fd518-02a7-2543-8780-a1fac202e68e"],
+Cell[10062, 272, 4259, 117, 560, "Input",ExpressionUUID->"56ded0e7-4287-1843-af01-89d1b8f056cb"],
+Cell[14324, 391, 6953, 168, 351, "Input",ExpressionUUID->"22c75cd1-14c2-074e-9da4-89460463df87"]
 }
 ]
 *)
-
-(* End of internal cache information *)
 
