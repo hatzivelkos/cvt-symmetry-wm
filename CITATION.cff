@@ -6,7 +6,6 @@ authors:
   - family-names: "Hatzivelkos"
     given-names: "Aleksandar"
 repository-code: "https://github.com/hatzivelkos/cvt-symmetry-wm"
-license: "LicenseRef-NonCommercial"
 abstract: "Wolfram Mathematica package for the numerical study of the continuous transmission pulley problem and the construction of a symmetric discrete radius solution under a fixed belt-length constraint."
 keywords:
   - "Wolfram Mathematica"
